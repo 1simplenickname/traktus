@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>Traktus</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	</head>
+
+	<body>
+
+		<div id="container">
+
+			<div id="home">
+			
+				<div id="logo" class="fas fa-chart-line"></div>
+				<div id="title" class="text">
+					Traktus <br>
+				</div>
+				<div id="subtitle" class="text subtext">
+					Trakt user stats
+				</div>
+
+				<input type="text" id="searchBar" class="text dark"
+					   placeholder="user">
+				<div id="searchButton" class="text" onclick="showStats()">GO</div>
+
+			</div>
+
+			<div id="stats">
+
+				<div id="statsHeader">
+
+					<div id="avatar" class="far fa-user-circle"></div>
+					<div id="username" class="text">null</div>
+					<div id="joinedContainer" class="text subtext">
+						Trakt user since
+						<span id="joinedContent">APR 5, 2014 19:25</span>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="about">
+
+			</div>
+
+		</div>
+
+		<a id="footer" class="text" href="https://trakt.tv">
+
+			<div id="footerText">Powered by Trakt</div>
+			<div id="traktLogo"></div>
+
+		</a>
+
+		<script rel="script" src="js/scripts.js"></script>
+		
+	</body>
+
+</html>

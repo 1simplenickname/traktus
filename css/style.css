@@ -1,0 +1,141 @@
+body {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background: #1d1d1d;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.text {
+	color: white;
+	font-size: 45px;
+	font-family: proximaNova
+}
+
+.subtext {
+	color: darkgray;
+	font-size: 30px;
+}
+
+.dark {
+	color: #1d1d1d;
+}
+
+@font-face {
+	font-family: proximaNova;
+	src: url('../fonts/proximaNova.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/proximaNova.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('../fonts/proximaNova.woff') format('woff'), /* Modern Browsers */
+	url('../fonts/proximaNova.ttf')  format('truetype'), /* Safari, Android, iOS */
+	url('../fonts/proximaNova.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+#container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#home {
+	visibility: visible;
+}
+
+#logo {
+	width: 200px;
+	height: 200px;
+	margin-bottom: 25px;
+	color: #ed1c24;
+	font-size: 200px;
+}
+
+#title {
+
+}
+
+#subtitle {
+	margin-bottom: 50px;
+}
+
+#searchBar {
+	width: 350px;
+	height: 50px;
+	float: left;
+	border-radius: 25px;
+	text-align: center;
+	border: 0px;
+	font-size: 30px;
+}
+
+#searchButton {
+	padding: 5px;
+	margin-left: 15px;
+	float: left;
+	background: #ed1c24;
+	border-radius: 25px;
+	transition: background 330ms, color 330ms;
+}
+
+#searchButton:hover {
+	cursor: pointer;
+	color: #ed1c24;
+	background: white;
+	transition: background 330ms, color 330ms;
+}
+
+#stats {
+	visibility: hidden;
+	transform: translateY(-200%);
+}
+
+#avatar {
+	margin-bottom: 30px;
+	font-size: 100px;
+	color: #ed1c24;
+}
+
+#about {
+	visibility: hidden;
+}
+
+#footer {
+	position: fixed;
+	bottom: 1%;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: color 500ms;
+}
+
+#footer:hover {
+	cursor: pointer;
+	color: #ed1c24;
+	transition: color 500ms;
+}
+
+#footerText {
+	float: left;
+	font-size: 30px;
+	margin-right: 10px;
+	line-height: 35px;
+}
+
+#traktLogo {
+	float: left;
+	width: 40px;
+	height: 40px;
+	background-image: url("../img/trakt.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+::selection {
+	color: white;
+	background: #ed1c24;
+}
+
+textarea, select, input, button { outline: none; }
