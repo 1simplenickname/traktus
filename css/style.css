@@ -23,6 +23,19 @@ body {
 	font-size: 30px;
 }
 
+.fadeIn {
+    animation: fadeIn 1000ms ease-in-out;
+}
+
+.fadeOut {
+    animation: fadeIn 1000ms ease-in-out reverse;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 @font-face {
 	font-family: proximaNova;
 	src: url('../fonts/proximaNova.eot'); /* IE9 Compat Modes */
@@ -42,6 +55,9 @@ body {
 
 #home {
 	visibility: visible;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-25%);
 }
 
 #logo {
@@ -95,13 +111,42 @@ body {
 
 #stats {
 	visibility: hidden;
-	transform: translateY(-200%);
+	transform: translateY(-175%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 #avatar {
 	margin-bottom: 30px;
 	font-size: 100px;
 	color: #ed1c24;
+}
+
+#movies, #episodes {
+    /*margin-top: 100px;*/
+    width: 50%;
+    visibility: hidden;
+    float: left;
+}
+
+#moviesWatched, #episodesWatched {
+    margin-top: 50px;
+    color: darkgray;
+}
+
+#moviesPlayed, #episodesPlayed,
+#moviesMinutes, #episodesMinutes,
+#moviesCalculated, #episodesCalculated {
+    margin-top: 100px;
+    color: darkgray;
+}
+
+#moviesWatched, #moviesWatchedSubtitle, #episodesWatchedSubtitle, #episodesWatched,
+#moviesPlayed, #moviesPlayedSubtitle, #episodesPlayedSubtitle, #episodesPlayed,
+#moviesMinutes, #moviesMinutesSubtitle, #episodesMinutes, #episodesMinutesSubtitle,
+#moviesCalculated, #moviesCalculatedSubtitle, #episodesCalculated, #episodesCalculatedSubtitle {
+     font-size: 30px;
 }
 
 #about {

@@ -1,5 +1,8 @@
 let home = document.getElementById("home");
 let stats = document.getElementById("stats");
+let movies = document.getElementById("movies");
+let episodes = document.getElementById("episodes");
+let about = document.getElementById("about");
 
 let searchBar = document.getElementById("searchBar");
 let usernameField = document.getElementById("username");
@@ -41,6 +44,8 @@ function newRequest(url, arg) {
                     userStats = this.responseText;
                     userStats = JSON.parse(userStats);
 
+                    showUserStats();
+
                 }
 
             }
@@ -56,9 +61,11 @@ function newRequest(url, arg) {
 function loadUserData() {
 
     let user = searchBar.value;
-    usernameField.innerHTML = user;
+    usernameField.innerHTML = user + "'s stats";
 
+    home.classList.add("fadeOut");
     toggleVisibility("home","hidden");
+    stats.classList.add("fadeIn");
     toggleVisibility("stats","visible");
 
     requestURL = "https://cors-anywhere.herokuapp.com/" + "https://api.trakt.tv/users/" + user + "?extended=full";
@@ -70,6 +77,7 @@ function loadUserStats() {
 
     let user = searchBar.value;
 
+    joined.classList.add("fadeIn");
     let joinedEdited = new Date(userData.joined_at).toString().substr(4).substring(0,11);
     joined.innerHTML = "Trakt user since " + joinedEdited.substring(6, 0) + "," + joinedEdited.substr(6);
 
@@ -78,10 +86,32 @@ function loadUserStats() {
 
     console.log(userStats);
 
-    // userStats.movies.watched;
-    // userStats.movies.played;
+}
 
-    // userStats.episodes.watched;
-    // userStats.episodes.played;
+function showUserStats() {
+
+    toggleVisibility("movies", "visible");
+    toggleVisibility("episodes", "visible");
+    movies.classList.add("fadeIn");
+    episodes.classList.add("fadeIn");
+
+    let moviesWatched = document.getElementById("moviesWatched");
+    let episodesWatched = document.getElementById("episodesWatched");
+    let moviesPlayed = document.getElementById("moviesPlayed");
+    let episodesPlayed = document.getElementById("episodesPlayed");
+    let moviesMinutes = document.getElementById("moviesMinutes");
+    let episodesMinutes = document.getElementById("episodesMinutes");
+    let moviesCalculated = document.getElementById("moviesCalculated");
+    let episodesCalculated = document.getElementById("episodesCalculated");
+
+    moviesWatched.innerHTML = userStats.movies.watched;
+    moviesPlayed.innerHTML = userStats.movies.plays;
+    moviesMinutes.innerHTML = userStats.movies.minutes;
+    moviesCalculated.innerHTML = Math.round((userStats.movies.minutes / 60) * 100) / 100;
+
+    episodesWatched.innerHTML = userStats.episodes.watched;
+    episodesPlayed.innerHTML = userStats.episodes.plays;
+    episodesMinutes.innerHTML = userStats.episodes.minutes;
+    episodesCalculated.innerHTML = Math.round((userStats.episodes.minutes / 60) * 100) / 100;
 
 }
