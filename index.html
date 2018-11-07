@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 	</head>
 
@@ -26,9 +25,14 @@
 					Trakt user stats
 				</div>
 
-				<input type="text" id="searchBar" class="text dark"
-					   placeholder="user">
-				<div id="searchButton" class="text" onclick="showStats()">GO</div>
+				<form onsubmit="loadStats(); return false;">
+
+					<input type="text" id="searchBar" class="text dark"
+						   placeholder="user">
+					<input type="submit" id="searchButton" class="text" value="GO">
+
+				</form>
+
 
 			</div>
 
@@ -38,9 +42,8 @@
 
 					<div id="avatar" class="far fa-user-circle"></div>
 					<div id="username" class="text">null</div>
-					<div id="joinedContainer" class="text subtext">
-						Trakt user since
-						<span id="joinedContent">APR 5, 2014 19:25</span>
+					<div id="joined" class="text subtext">
+						Loading user stats
 					</div>
 
 				</div>
