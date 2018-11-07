@@ -78,4 +78,10 @@ function loadUserStats() {
 
     console.log(userStats);
 
+    // userStats.movies.watched;
+    // userStats.movies.played;
+
+    // userStats.episodes.watched;
+    // userStats.episodes.played;
+
 }
