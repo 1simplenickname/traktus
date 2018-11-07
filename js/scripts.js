@@ -5,7 +5,7 @@ let searchBar = document.getElementById("searchBar");
 let usernameField = document.getElementById("username");
 let joined = document.getElementById("joined");
 
-let data = "";
+let requestURL, userData, userStats = "";
 
 let apiKey = "46ebcab57a63082b8025c12ad813efeadb8facb525aef41d6f50a925721822f8";
 
@@ -15,21 +15,7 @@ function toggleVisibility(target, state) {
 
 }
 
-function loadStats() {
-
-    let user = searchBar.value;
-    usernameField.innerHTML = user;
-
-    toggleVisibility("home","hidden");
-    toggleVisibility("stats","visible");
-
-    let requestURL = "https://cors-anywhere.herokuapp.com/" + "https://api.trakt.tv/users/" + user + "?extended=full";
-
-    newRequest(requestURL);
-
-}
-
-function newRequest(url) {
+function newRequest(url, arg) {
 
     let request = new XMLHttpRequest();
     if("withCredentials" in request) {
@@ -43,10 +29,19 @@ function newRequest(url) {
                 console.log('Status:', this.status);
                 console.log('Headers:', this.getAllResponseHeaders());
 
-                data = this.responseText;
-                data = JSON.parse(data);
+                if (arg === "userData") {
 
-                showStats();
+                    userData = this.responseText;
+                    userData = JSON.parse(userData);
+
+                    loadUserStats();
+
+                } else if (arg === "userStats") {
+
+                    userStats = this.responseText;
+                    userStats = JSON.parse(userStats);
+
+                }
 
             }
 
@@ -58,10 +53,29 @@ function newRequest(url) {
 
 }
 
-function showStats() {
+function loadUserData() {
 
-    let joinedEdited = new Date(data.joined_at).toString().substr(4).substring(0,11);
+    let user = searchBar.value;
+    usernameField.innerHTML = user;
 
+    toggleVisibility("home","hidden");
+    toggleVisibility("stats","visible");
+
+    requestURL = "https://cors-anywhere.herokuapp.com/" + "https://api.trakt.tv/users/" + user + "?extended=full";
+    newRequest(requestURL, "userData");
+
+}
+
+function loadUserStats() {
+
+    let user = searchBar.value;
+
+    let joinedEdited = new Date(userData.joined_at).toString().substr(4).substring(0,11);
     joined.innerHTML = "Trakt user since " + joinedEdited.substring(6, 0) + "," + joinedEdited.substr(6);
+
+    requestURL = "https://cors-anywhere.herokuapp.com/" + "https://api.trakt.tv/users/" + user + "/stats";
+    newRequest(requestURL, "userStats");
+
+    console.log(userStats);
 
 }
