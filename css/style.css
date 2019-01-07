@@ -25,11 +25,11 @@ body {
 }
 
 .fadeIn {
-    animation: fadeIn 1000ms ease-in-out;
+    animation: fadeIn 500ms linear;
 }
 
 .fadeOut {
-    animation: fadeIn 1000ms ease-in-out reverse;
+    animation: fadeIn 500ms linear reverse;
 }
 
 @keyframes fadeIn {
@@ -92,7 +92,7 @@ body {
 }
 
 #searchButton {
-	padding: 5px;
+	height: 50px;
 	margin-left: 15px;
 	float: left;
 	background: #ed1c24;
@@ -118,8 +118,34 @@ body {
     position: absolute;
 }
 
-#avatar {
+#avatar, #avatarPlaceholder {
 	margin-bottom: 30px;
+}
+
+#avatar {
+	visibility: hidden;
+	width: 100px;
+	height: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: white;
+	border: 5px solid white;
+	position: fixed;
+}
+
+#avatar:hover {
+	cursor: pointer;
+	background: #ed1c24;
+	border: 5px solid #ed1c24;
+}
+
+#avatar, #avatar:hover {
+	background-size: cover;
+	border-radius: 50%;
+	transition: background 330ms linear, border 330ms linear;
+}
+
+#avatarPlaceholder {
 	font-size: 100px;
 	color: #ed1c24;
 }

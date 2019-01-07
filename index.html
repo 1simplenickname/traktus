@@ -39,12 +39,13 @@
 
 				<div id="statsHeader">
 
-					<div id="avatar" class="far fa-user-circle"></div>
+					<div id="avatar" onclick="openUserAvatar();"></div>
+					<div id="avatarPlaceholder" class="far fa-user-circle"></div>
 					<br>
 					<span id="username" class="text" onclick="openUserOnTrakt();">null</span>
 					<span id="usernameContinued" class="text">'s stats</span>
 					<div id="joined" class="text subtext">
-						Loading users stats
+						Loading null's stats
 					</div>
 
 					<div id="movies" class="text">
@@ -53,21 +54,21 @@
 			              XXX
 			          </div>
 								<div id="moviesWatchedSubtitle">
-			            	movies watched
+			            	watched
 			          </div>
 
 			          <div id="moviesPlayed">
 			              XXX
 			          </div>
 								<div id="moviesPlayedSubtitle">
-			              movies played
+			              played
 			          </div>
 
 		            <div id="moviesCalculated">
 		            		XXX
 		            </div>
 								<div id="moviesCalculatedSubtitle">
-		              	hours spent watching movies
+		              	spent watching movies
 		            </div>
 
 					</div>
@@ -78,21 +79,21 @@
                 XXX
             </div>
 						<div id="episodesWatchedSubtitle">
-                  episodes watched
+                  watched
             </div>
 
             <div id="episodesPlayed">
                 XXX
             </div>
 						<div id="episodesPlayedSubtitle">
-                  episodes played
+                  played
             </div>
 
             <div id="episodesCalculated">
                 XXX
             </div>
 						<div id="episodesCalculatedSubtitle">
-                  hours spent watching TV
+                  spent watching TV
             </div>
 
 					</div>
@@ -107,12 +108,12 @@
 
 		</div>
 
-		<a id="footer" class="text" href="https://trakt.tv">
+		<div id="footer" class="text" onclick="poweredByTrakt();">
 
 			<div id="footerText">Powered by Trakt</div>
 			<div id="traktLogo"></div>
 
-		</a>
+		</div>
 
 		<script rel="script" src="js/scripts.js"></script>
 
