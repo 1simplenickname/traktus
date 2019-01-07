@@ -61,7 +61,7 @@ function newRequest(url, arg) {
 function loadUserData() {
 
     let user = searchBar.value;
-    usernameField.innerHTML = user + "'s stats";
+    usernameField.innerHTML = user;
 
     home.classList.add("fadeOut");
     toggleVisibility("home","hidden");
@@ -99,19 +99,22 @@ function showUserStats() {
     let episodesWatched = document.getElementById("episodesWatched");
     let moviesPlayed = document.getElementById("moviesPlayed");
     let episodesPlayed = document.getElementById("episodesPlayed");
-    let moviesMinutes = document.getElementById("moviesMinutes");
-    let episodesMinutes = document.getElementById("episodesMinutes");
     let moviesCalculated = document.getElementById("moviesCalculated");
     let episodesCalculated = document.getElementById("episodesCalculated");
 
     moviesWatched.innerHTML = userStats.movies.watched;
     moviesPlayed.innerHTML = userStats.movies.plays;
-    moviesMinutes.innerHTML = userStats.movies.minutes;
-    moviesCalculated.innerHTML = Math.round((userStats.movies.minutes / 60) * 100) / 100;
+    moviesCalculated.innerHTML = Math.round(userStats.movies.minutes / 60);
 
     episodesWatched.innerHTML = userStats.episodes.watched;
     episodesPlayed.innerHTML = userStats.episodes.plays;
-    episodesMinutes.innerHTML = userStats.episodes.minutes;
-    episodesCalculated.innerHTML = Math.round((userStats.episodes.minutes / 60) * 100) / 100;
+    episodesCalculated.innerHTML = Math.round(userStats.episodes.minutes / 60);
+
+}
+
+function openUserOnTrakt() {
+
+    let user = searchBar.value;
+    window.open("https://www.trakt.tv/users/" + user);
 
 }
